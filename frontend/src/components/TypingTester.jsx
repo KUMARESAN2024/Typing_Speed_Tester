@@ -32,7 +32,7 @@ const TypingTester = () => {
 
   const fetchParagraph = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/get-paragraph?difficulty=${difficulty}`);
+      const res = await axios.get(`https://typing-speed-tester.onrender.com/get-paragraph?difficulty=${difficulty}`);
       setParagraph(res.data.paragraph.trim());
       setInput('');
       setResult(null);
@@ -60,7 +60,7 @@ const TypingTester = () => {
     const elapsed = timerMode ? 60 - countdown : (Date.now() - startTime) / 1000;
 
     try {
-      const res = await axios.post('http://localhost:8000/check-speed', {
+      const res = await axios.post('https://typing-speed-tester.onrender.com/check-speed', {
         typed: input,
         original: paragraph,
         time: elapsed
